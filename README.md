@@ -1,36 +1,53 @@
 ![](../../workflows/gds/badge.svg) ![](../../workflows/docs/badge.svg) ![](../../workflows/wokwi_test/badge.svg)
 
-# What is Tiny Tapeout?
+# Demultiplexor NAND
 
-TinyTapeout is an educational project that aims to make it easier and cheaper than ever to get your digital designs manufactured on a real chip!
 
-Go to https://tinytapeout.com for instructions!
+## Autores: 
+Mauricio Caballero Hernández / Alejandro Duran Morales / Marvin Yahir Salamanca Ramirez / Kevin Ortiz Sarate
 
-## How to change the Wokwi project
 
-Edit the [info.yaml](info.yaml) and change the wokwi_id to match your project.
+### Descripcion:
+Demultiplexor de 3 entradas independientes y 3 entradas de dirección que arrojan valore logicos de 0 y 1 en 8 salidas diferentes, constituido por compuertas NAND y NOT, imitando el comportamiento de un LS138
 
-## How to enable the GitHub actions to build the ASIC files
 
-Please see the instructions for:
+### How does it work?
+Introduciendo un total de 6 señales en el circuito se puede arrojar una señal negada (un valor de 0 logico) en una de las 8 salidas disponibles. 
+Las primeras 3 entradas dentro del circuito son clasificadas como entradas de dirección y se encargan de configurar el Demultiplexor, los otros 3 puertos de entrada admiten valores de entrada independientes que terminan por infliur en las entradas de las compuertas logicas NAND y eso enconjunto permite que se arrojen valores logicos, predominando los estados altos en 7 de 8 salidas, mientras que la salida restante arroja un valor logico de 0 (lo cual admite un total de 8 combinaciones posibles con resultados diferentes). 
+Todo el cuerpo del Demultiplexor esta conformado por compuertas NAND de 4 entradas y su demanda de compuertas NOT es minima en comparacion.
 
-- [Enabling GitHub Actions](https://tinytapeout.com/faq/#when-i-commit-my-change-the-gds-action-isnt-running)
-- [Enabling GitHub Pages](https://tinytapeout.com/faq/#my-github-action-is-failing-on-the-pages-part)
 
-## How does it work?
+### How to test?
+Para probar el circuito es necesario utilizar un dip switch de 6 entradas donde las primeras 3 posiciones conformaran las entradas
+de dirección (E0-E2) mientras que las posiciones 4 a 6 seran las entradas independientes (A0-A2).
+En su estado natural, (sin señales de entrada más que la E0), se arrojara el estado bajo a O0, 
+Para arrojar un valor de 0 a la salida O1 es necesario mantener activa la entrada de direccion E0 y la entrada independiente A0. 
+Para cambiar a la salida O2 se mantiene la entrada de dirección E0 y la entrada A1.
+Para cambiar a la salida O3 se mantiene la entrada de dirección E0 y la entrada A0 + A1.
+Para cambiar a la salida O4 se mantiene la entrada de dirección E0 y la entrada A2.
+Para cambiar a la salida O5 se mantiene la entrada de dirección E0 y la entrada A0 + A2.
+Para cambiar a la salida O6 se mantiene la entrada de dirección E0 y la entrada A1 + A2.
+Para cambiar a la salida O7 se mantiene la entrada de dirección E0 y la entrada A0 + A1 + A2.
+Para que todas las salidas arrojen un valor logico de 1 se necesita que se activen las entradas E1 + E2.
 
-When you edit the info.yaml to choose a different ID, the [GitHub Action](.github/workflows/gds.yaml) will fetch the digital netlist of your design from Wokwi.
 
-After that, the action uses the open source ASIC tool called [OpenLane](https://www.zerotoasiccourse.com/terminology/openlane/) to build the files needed to fabricate an ASIC.
 
-## Resources
+### Inputs
+  - E0 (Entrada de dirección)
+  - E1 (Entrada de dirección)
+  - E2 (Entrada de dirección)
+  - A0 (Entrada independiente)
+  - A1 (Entrada independiente)
+  - A2 (Entrada independiente)
 
-- [FAQ](https://tinytapeout.com/faq/)
-- [Digital design lessons](https://tinytapeout.com/digital_design/)
-- [Learn how semiconductors work](https://tinytapeout.com/siliwiz/)
-- [Join the community](https://discord.gg/rPK2nSjxy8)
 
-## What next?
+### Outputs
+  - segment a
+  - segment b
+  - segment c
+  - segment d
+  - segment e
+  - segment f
+  - segment g
+  - dot
 
-- Submit your design to the next shuttle [on the website](https://tinytapeout.com/#submit-your-design), the closing date is 8th September.
-- Share your GDS on Twitter, tag it [#tinytapeout](https://twitter.com/hashtag/tinytapeout?src=hashtag_click) and [link me](https://twitter.com/matthewvenn)!
