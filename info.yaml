@@ -21,7 +21,7 @@ yaml_version: 4
 #
 # Here is a great example: https://github.com/davidsiaw/tt02-davidsiaw-stackcalc/blob/38c5647f83aad2aec675d566aa3d67b98f0aac81/info.yaml
 documentation: 
-  author:       "Mauricio Caballero Hernández/Alejandro Duran Morales/Marvin Yahir Salamanca Ramirez/Kevin Ortiz Sarate"      # Your name
+  author:       "Mauricio Caballero Hernández - Alejandro Duran Morales - Marvin Yahir Salamanca Ramirez - Kevin Ortiz Sarate"      # Your name
   title:        "Demultiplexor NAND"      # Project title
   language:     "Wokwi" # other examples include Verilog, Amaranth, VHDL, etc
   description:  "Demultiplexor de 3 entradas independientes y 3 entradas de dirección que arrojan valore logicos de 0 y 1 en 8 salidas diferentes, constituido por compuertas NAND y NOT, imitando el comportamiento de un LS138"      # Short description of what your project does
