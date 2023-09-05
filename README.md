@@ -4,7 +4,7 @@
 
 
 ## Autores: 
- Mauricio Caballero Hernández / Alejandro Duran Morales / Marvin Yahir Salamanca Ramirez / Kevin Ortiz Sarate
+ Mauricio Caballero Hernández - Alejandro Duran Morales - Marvin Yahir Salamanca Ramirez - Kevin Ortiz Sarate
 
 
 ### Descripcion:
